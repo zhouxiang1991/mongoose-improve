@@ -100,6 +100,21 @@ class Mongoose {
     });
     return result?.upserted ? _id : '';
   }
+  async findAndCreate(conditions, insert = {}) {
+    const _id = random.id();
+    const result = await this.model.update(conditions, {
+      $setOnInsert: {
+        ...insert,
+        _id,
+        ts: new Date(),
+        _updatedAt: new Date(),
+      },
+    }, {
+      upsert: true,
+      runValidators: true,
+    });
+    return result?.upserted ? _id : '';
+  }
   async findOrCreate(selector, create = {}) {
     const ret = {
       _id: '',
