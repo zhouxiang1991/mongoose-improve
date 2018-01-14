@@ -113,7 +113,7 @@ class Mongoose {
       upsert: true,
       runValidators: true,
     });
-    return result?.upserted ? _id : '';
+    return result.upserted ? _id : undefined;
   }
   async findOrCreate(selector, create = {}) {
     const ret = {
@@ -134,7 +134,7 @@ class Mongoose {
       _updatedAt: new Date(),
     });
     ret._id = result._id;
-    ret.create = result.create;
+    ret.create = true;
     return ret;
   }
 }
