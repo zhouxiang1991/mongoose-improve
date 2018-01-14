@@ -100,5 +100,27 @@ class Mongoose {
     });
     return result?.upserted ? _id : '';
   }
+  async findOrCreate(selector, create = {}) {
+    const ret = {
+      _id: '',
+      create: false,
+    };
+    let result = await this.findOne(selector, { _id: 1 });
+    if (result) {
+      ret._id = result._id;
+      return ret;
+    }
+
+    result = await this.model.create({
+      ...selector,
+      ...create,
+      _id: random.id(),
+      ts: new Date(),
+      _updatedAt: new Date(),
+    });
+    ret._id = result._id;
+    ret.create = result.create;
+    return ret;
+  }
 }
 export default Mongoose;
