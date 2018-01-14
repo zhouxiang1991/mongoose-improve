@@ -1,12 +1,11 @@
 {
   "name": "mongoose-improve",
-  "version": "0.0.1",
+  "version": "1.1.0",
   "description": "mongoose improve version",
   "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel-node ./test/test.js",
-    "compile": "./node_modules/.bin/babel -d lib/ src/",
-    "publish": "yarn publish --registry https://registry.npmjs.com"
+    "compile": "./node_modules/.bin/babel -d lib/ src/"
   },
   "repository": {
     "type": "git",
@@ -39,7 +38,10 @@
     ]
   },
   "eslintConfig": {
-    "extends": ["airbnb-base", "/Users/zhouxiang/doc/private/eslintRules.js"],
+    "extends": [
+      "airbnb-base",
+      "/Users/zhouxiang/doc/private/eslintRules.js"
+    ],
     "globals": {
       "describe": true,
       "it": true
