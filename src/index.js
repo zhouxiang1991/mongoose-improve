@@ -7,14 +7,11 @@ const dbs = {};
 class Mongoose {
   constructor(_url, name, schema) {
     const url = process.env[_url] || _url;
-    let db;
-    if (dbs[url]) {
-      db = dbs[url];
-    } else {
+    if (!dbs[url]) {
       dbs[url] = mongoose.createConnection(url);
     }
 
-    this.model = db.model(name, schema, name);
+    this.model = dbs[url].model(name, schema, name);
   }
   async findOne(...args) {
     return this.model.findOne(...args);
