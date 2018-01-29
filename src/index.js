@@ -5,15 +5,15 @@ import mongoose from 'mongoose';
 mongoose.Promise = global.Promise;
 const dbs = {};
 class Mongoose {
-  constructor(url, name, schema) {
-    const realUrl = process.env[url];
-    let db = null;
-    if (!dbs[realUrl]) {
-      dbs[realUrl] = mongoose.createConnection(realUrl);
-      db = dbs[realUrl];
+  constructor(_url, name, schema) {
+    const url = process.env[_url] || _url;
+    let db;
+    if (dbs[url]) {
+      db = dbs[url];
     } else {
-      db = dbs[realUrl];
+      dbs[url] = mongoose.createConnection(url);
     }
+
     this.model = db.model(name, schema, name);
   }
   async findOne(...args) {
