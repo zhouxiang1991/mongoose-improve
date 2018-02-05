@@ -136,6 +136,9 @@ class Mongoose {
   }
 }
 export default Mongoose;
+export {
+  random,
+};
 export const {
   Schema,
   Aggregate,
