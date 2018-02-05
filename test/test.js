@@ -11,7 +11,7 @@ class Test extends Mongoose {
   }
   // ...methods
 }
-console.log(random);
+console.log(Random);
 /* const model = new Test(url, name, schema); */
 // model.upsert();
 // model.findAndRemove();
