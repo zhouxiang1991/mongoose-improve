@@ -2,7 +2,7 @@
   "name": "mongoose-improve",
   "version": "1.2.5",
   "description": "mongoose improve version",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "./node_modules/.bin/babel-node ./test/test.js",
     "compile": "./node_modules/.bin/babel -d lib/ src/"
