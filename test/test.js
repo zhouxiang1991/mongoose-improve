@@ -1,4 +1,4 @@
-import Mongoose from '../src/index.js';
+import Mongoose, { Schema, Aggregate } from '../src/index.js';
 
 class Test extends Mongoose {
   constructor(url, name, schema) {
@@ -6,8 +6,8 @@ class Test extends Mongoose {
   }
   // ...methods
 }
-
-const model = new Test(url, name, schema);
+console.log(Aggregate);
+/* const model = new Test(url, name, schema); */
 // model.upsert();
 // model.findAndRemove();
 // model.findOrInsert();

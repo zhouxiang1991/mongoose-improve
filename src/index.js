@@ -136,3 +136,7 @@ class Mongoose {
   }
 }
 export default Mongoose;
+export const {
+  Schema,
+  Aggregate,
+} = mongoose;
